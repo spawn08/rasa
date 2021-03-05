@@ -780,7 +780,7 @@ class DialogueStateTracker:
 
         for slot in self.slots.values():
             slot.reset()
-            slot.slot_has_been_set = False
+            slot.has_been_set = False
 
     def _set_slot(self, key: Text, value: Any) -> None:
         """Set the value of a slot if that slot exists."""
@@ -788,7 +788,7 @@ class DialogueStateTracker:
         if key in self.slots:
             slot = self.slots[key]
             slot.value = value
-            slot.slot_has_been_set = True
+            slot.has_been_set = True
         else:
             logger.error(
                 f"Tried to set non existent slot '{key}'. Make sure you "

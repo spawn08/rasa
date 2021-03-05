@@ -1008,14 +1008,14 @@ class Domain:
         """Set all set slots with the featurization of the stored value
         Args:
             tracker: dialog state tracker containing the dialog so far
+            # TODO: JUZL
         Returns:
             a dictionary mapping slot names to their featurization
         """
         slots = {}
         for slot_name, slot in tracker.slots.items():
             if slot is not None and slot.as_feature():
-                print('omit_unset_slots', omit_unset_slots, slot, slot.slot_has_been_set)
-                if omit_unset_slots and not slot.slot_has_been_set:
+                if omit_unset_slots and not slot.has_been_set:
                     continue
                 if slot.value == rasa.shared.core.constants.SHOULD_NOT_BE_SET:
                     slots[slot_name] = rasa.shared.core.constants.SHOULD_NOT_BE_SET

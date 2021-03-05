@@ -920,7 +920,7 @@ async def test_predict_form_action_if_multiple_turns():
     assert_predicted_action(prediction, domain, form_name, is_no_user_prediction=True)
 
 
-async def test_predict_slot_with_initial_value():
+async def test_predict_slot_initial_value_not_required():
     domain = Domain.from_yaml(
         f"""
 intents:
